@@ -1,1 +1,1 @@
-# 1000-Javascript-Most-Popular-Job-Interview-Challenge-Beta-
+# 1000 Javascript Most Popular Job Interview Challenge Game (Beta)
