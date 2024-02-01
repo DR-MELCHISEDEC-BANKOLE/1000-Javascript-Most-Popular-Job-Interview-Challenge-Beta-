@@ -127,6 +127,46 @@ alert(`1,000 JavaScript Most Popular Job Interview Challenge Game:\nCode author:
 alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to annex your coding Super-Power.\nThis might be your long-awaited opportunity to land your first dream job in tech.\nAre you ready? Lets go!\n Click Ok to continue to the challenge.`);
 
 
+    // SECTION: AUDIO PLAYER
+    const audioElement = new Audio();
+    audioElement.id = "background-music";
+
+    const sources = [
+        "https://www.dropbox.com/scl/fi/434lha3g0b4xnem7apoxn/2022-07-13_-_Our_Hopes_And_Dreams_-_www.FesliyanStudios.com.mp3?rlkey=dx6zh0o8ne0fg9xec1vaso5q8&raw=1",
+        "https://www.dropbox.com/scl/fi/6iovlx9h4kurx0wedtafk/2020-08-11_-_Rise_Up_-_www.FesliyanStudios.com_Steve_Oxen-1.mp3?rlkey=24l8s91sjjqg03ez7bc43kuzo&raw=1"
+    ];
+
+    let currentIndex = 0;
+    audioElement.src = sources[currentIndex];
+    audioElement.autoplay = true; // Autoplay the audio
+    audioElement.muted = false; // Not muted (set to false)
+
+    const audioToggle = document.createElement("button");
+    audioToggle.id = "toggle-audio";
+    audioToggle.textContent = "Toggle Audio Music";
+    
+    // Adjust styles for the button
+    audioToggle.style.width = '100%';
+    audioToggle.style.color = 'white';
+    audioToggle.style.backgroundColor = 'red'; // Set background color to red
+
+    document.body.appendChild(audioElement);
+    document.body.appendChild(audioToggle);
+
+    audioToggle.addEventListener("click", function () {
+        if (audioElement.paused) {
+            audioElement.play();
+        } else {
+            audioElement.pause();
+        }
+    });
+
+    audioElement.addEventListener("ended", function () {
+        currentIndex = (currentIndex + 1) % sources.length;
+        audioElement.src = sources[currentIndex];
+        audioElement.play();
+    });
+
 // SECTION: MEDIA QUERY FOR MOBILE PHONES
 const mediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
 
