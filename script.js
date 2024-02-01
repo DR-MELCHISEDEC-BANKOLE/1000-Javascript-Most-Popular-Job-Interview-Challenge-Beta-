@@ -32,7 +32,7 @@ document.addEventListener('keydown', function (e) {
 
 // SECTION: HEADER
 const header = document.createElement('h1');
-header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong><span style="text-align: left; font-size: 18px; color: white;">Dr Melchisedec Bankole</span>';
+header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong><span style="text-align: left; font-size: 18px; color: black;">Dr Melchisedec Bankole</span>';
 header.style.color = 'blue';
 header.style.fontSize = '24px'; // Add font size for the entire header
 container.appendChild(header);
