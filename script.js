@@ -32,7 +32,7 @@ document.addEventListener('keydown', function (e) {
 
 // SECTION: HEADER
 const header = document.createElement('h1');
-header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)</span></strong><span style="font-size: 14px; color: black; text-align: left; display: block;">Dr Melchisedec Bankole</span>';
+header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)</span></strong>';
 header.style.color = 'blue';
 header.style.fontSize = '24px'; // Add font size for the entire header
 container.appendChild(header);
@@ -85,14 +85,43 @@ function logoutUser() {
     console.log('User logged out');
 }
 
+
 // SECTION: EVALUATE CODE FUNCTION USING SANDBOXED ENVIRONMENT
 function evaluateCode() {
-    const userCode = textarea.value;
+    const userCode = textarea.value.trim(); // Trim whitespace
+
+    // Check if there is user input
+    if (!userCode) {
+        alert('Please provide code before evaluating.'); // Notify the user to input code
+        return;
+    }
 
     try {
-        const sandbox = new Function(userCode); // Use a sandboxed environment for code execution
-        sandbox();
-        alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');
+        // Create a sandboxed environment with the fizzBuzz function
+        const sandbox = new Function(`
+            ${fizzBuzz}
+            let userOutput;
+            try {
+                // Create a new fizzBuzz function in the user's context
+                const fizzBuzzInUserContext = ${fizzBuzz};
+                userOutput = fizzBuzzInUserContext(100).join(',');
+                ${userCode}
+            } catch (error) {
+                throw new Error('User code error: ' + error.message);
+            }
+            return userOutput;
+        `);
+
+        const userOutput = sandbox();
+
+        // Compare the user's output with the expected result (FizzBuzz)
+        const fizzBuzzResult = fizzBuzz(100);
+        const expectedOutput = fizzBuzzResult.join(',');
+
+        if (userOutput === expectedOutput) {
+            alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');        } else {
+            alert('Sorry, your code did not produce the expected output for the FizzBuzz challenge. Please try again.');
+        }
     } catch (error) {
         alert(`Error: ${error.message}`);
     }
@@ -167,6 +196,7 @@ alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to a
         audioElement.play();
     });
 
+    
 // SECTION: MEDIA QUERY FOR MOBILE PHONES
 const mediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
 
