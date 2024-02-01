@@ -54,12 +54,12 @@ container.appendChild(paragraph);
 const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
 paragraph.innerHTML = challengeText.split('.').join('.<br>');
 
-// SECTION: USER INPUT AND CODE EVALUATION
+// SECTION: USER INPUT/TEXTAREA AND CODE EVALUATION
 const textarea = document.createElement('textarea');
 textarea.style.width = '100%';
 textarea.rows = 10; // Set the number of rows
 textarea.cols = 50; // Set the number of columns
-textarea.placeholder = 'Write your code here...\nUse For Loop to maximize the limited time...'; // Set placeholder
+textarea.placeholder = 'Write your code here...\nUse For Loop to maximize the limited time...\n\nEnjoy the music while you code...'; // Set placeholder
 container.appendChild(textarea);
 
 const evaluateButton = document.createElement('button');
