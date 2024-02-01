@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const container = document.createElement('div');
 document.body.appendChild(container);
 
-// Disable right-click, copy, paste, Ctrl+C, Ctrl+V, and Escape
+// Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
