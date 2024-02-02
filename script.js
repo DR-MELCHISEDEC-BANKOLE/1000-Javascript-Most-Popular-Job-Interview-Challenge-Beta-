@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-/*
-const container = document.createElement('div');
-document.body.appendChild(container);
-
-*/
+    
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -32,6 +27,7 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+// Header SECTION
 // Fixed Header
 const header = document.createElement('h1');
 header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong> <span style="text-align: left; font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px;">Dr Melchisedec Bankole</span>';
@@ -76,7 +72,7 @@ document.body.style.padding = '0';
 const paragraph = document.createElement('p');
 
 // Set the HTML content of the paragraph using challengeText
-const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
+const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100.<br>But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.<br>For numbers which are multiples of both three and five print “FizzBuzz”.';
 paragraph.innerHTML = challengeText;
 container.appendChild(paragraph);
 // Append the paragraph to a container 
@@ -272,7 +268,7 @@ function handleMediaQueryChange(e) {
         // Apply mobile styles here
         header.style.fontSize = '20px';
         countdown.style.fontSize = '24px';
-        paragraph.style.fontSize = '16px';
+        paragraph.style.fontSize = '18px';
         textarea.style.fontSize = '16px';
         evaluateButton.style.fontSize = '16px';
     } else {
