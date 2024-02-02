@@ -147,8 +147,7 @@ let intervalId;
 
 function clearUserCode() {
     textarea.value = ''; // Clear the textarea
-    alert('Time is up, please try again. Click OK to continue.');
-    restartTimer();
+alert("Oops! Time's up, but don't give up just yet. Take a deep breath, annex your coding Super-Power, and give it another shot. Your journey to mastering JavaScript continues! Click OK to embrace the challenge.");    restartTimer();
 }
 
 function restartTimer() {
