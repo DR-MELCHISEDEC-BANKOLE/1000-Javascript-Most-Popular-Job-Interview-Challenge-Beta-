@@ -38,13 +38,6 @@ header.style.color = 'blue';
 header.style.fontSize = '24px'; // Add font size for the entire header
 container.appendChild(header);
 
-// SECTION: COUNTDOWN TIMER
-const countdown = document.createElement('div');
-countdown.style.color = 'red';
-countdown.style.fontSize = '30px'; // Add font size
-countdown.innerText = `Time: 420sec`; // Initial time
-container.appendChild(countdown);
-
 // Set body background color
 document.body.style.backgroundColor = '#ffcd08';
 
@@ -55,6 +48,13 @@ container.appendChild(paragraph);
 const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
 paragraph.innerHTML = challengeText.split('.').join('.<br>');
 
+// SECTION: COUNTDOWN TIMER
+const countdown = document.createElement('div');
+countdown.style.color = 'red';
+countdown.style.fontSize = '30px'; // Add font size
+countdown.innerText = `Time: 420sec`; // Initial time
+container.appendChild(countdown);
+    
 // SECTION: USER INPUT/TEXTAREA AND CODE EVALUATION
 const textarea = document.createElement('textarea');
 textarea.style.width = '100%';
