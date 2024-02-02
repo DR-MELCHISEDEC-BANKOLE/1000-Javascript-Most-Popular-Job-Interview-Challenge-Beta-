@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const container = document.createElement('div');
 document.body.appendChild(container);
 
+
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -72,18 +73,32 @@ container.appendChild(evaluateButton);
 
 // SECTION: COUNTDOWN TIMER INITIALIZATION
 let time = 420;
-setInterval(() => {
-    countdown.innerText = `Time: ${time}sec`;
-    if (time === 0) {
-        logoutUser();
-    }
-    time--;
-}, 1000);
+let intervalId;
 
-// SECTION: FUNCTION TO LOGOUT USER WHEN TIME IS 0
-function logoutUser() {
-    console.log('User logged out');
+function clearUserCode() {
+    textarea.value = ''; // Clear the textarea
+    alert('Time is up, please try again. Click OK to continue.');
+    restartTimer();
 }
+
+function restartTimer() {
+    time = 420; // Reset the time
+    intervalId = setInterval(() => {
+        updateTimer();
+        if (time === 0) {
+            clearInterval(intervalId); // Stop the timer
+            clearUserCode();
+        }
+        time--;
+    }, 1000);
+}
+
+function updateTimer() {
+    countdown.innerText = `Time: ${time} sec`;
+}
+
+updateTimer(); // Initial call to display the timer
+restartTimer(); // Initial call to start the timer
 
 
 // SECTION: EVALUATE CODE FUNCTION USING SANDBOXED ENVIRONMENT
@@ -154,8 +169,7 @@ console.log(fizzBuzzResult);
 alert(`1,000 JavaScript Most Popular Job Interview Challenge Game:\nCode author:\nDr. Melchisedec Bankole.\nClick OK to continue to the code challenge.`);
 
 alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to annex your coding Super-Power.\nThis might be your long-awaited opportunity to land your first dream job in tech.\nAre you ready? Lets go!\n Click Ok to continue to the challenge.`);
-
-
+    
   // SECTION: AUDIO PLAYER
 const audioElement = new Audio();
 audioElement.id = "background-music";
@@ -195,7 +209,6 @@ audioElement.addEventListener("ended", function () {
     audioElement.src = sources[currentIndex];
     audioElement.play();
 });
-
 
 // SECTION: MEDIA QUERY FOR AUDIO PLAYER
 const audioPlayerMediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
