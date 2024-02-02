@@ -29,19 +29,38 @@ document.addEventListener('keydown', function (e) {
 
 // Header Section
 const header = document.createElement('h1');
-header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong> <span style="text-align: left; font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px;">Dr Melchisedec Bankole</span>';
+header.innerHTML = '<span style="font-size: 28px; margin-top: 10px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
 header.style.color = 'blue';
 header.style.fontSize = '24px';
 header.style.fontFamily = 'Arial, sans-serif'; // Add font family
-header.style.marginTop = '30px'; // Add top margin
-header.style.textAlign = 'center'; // Center align text
-document.body.appendChild(header);
 
-// Container creation and styling
+//header.style.marginTop = '30px'; // Add top margin
+header.style.textAlign = 'center'; // Center align text
+//header.style.display = 'inline-block'; // Add display: inline-block
+//header.style.width = '400px'; // Set width
+//header.style.height = '100px'; // Set height
+header.style.backgroundColor = '#ffcd08';
+header.style.paddingTop = '2px';
+header.style.paddingBottom = '2px';
+header.style.position = 'fixed';
+header.style.top = '0';
+header.style.left = '0';
+header.style.width = '100%';
+//header.style.border = '0.5px solid green';
+//header.style.borderRadius = '10px';  // Use camelCase for border-radius
+header.style.marginLeft = '-0.5px';  // Use camelCase for margin-left
+document.body.appendChild(header);
+document.body.style.margin = '0';
+document.body.style.padding = '0';
+
+header.style.margin = '0';  // Remove margin above the header
+header.style.padding = '0';  // Remove padding above the header
+
+
 const container = document.createElement('div');
 document.body.appendChild(container);
 
-container.style.display = 'flex';
+container.style.display = 'flex'; // Add display: inline-block
 container.style.flexDirection = 'column';
 container.style.alignItems = 'flex-start'; // Align to the left
 container.style.justifyContent = 'space-between';
@@ -49,7 +68,15 @@ container.style.padding = '20px';
 container.style.border = '1px solid #ccc';
 container.style.transition = 'margin-top 0.3s ease-out';
 container.style.textAlign = 'left'; // Align text inside container to the left
+container.style.width = '100%';  // Use camelCase for width
+container.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
 
+//container.style.width = '400px'; // Set width
+//container.style.height = '300px'; // Set height
+
+//container.style.paddingTop = '70px';  // Use camelCase for padding-top
+//container.style.marginTop = '100px';  // Use camelCase for margin-top
+/*
 // Calculate the height of the header and set the initial margin for the container
 const headerHeight = header.offsetHeight;
 container.style.marginTop = `${headerHeight}px`;
@@ -60,21 +87,33 @@ window.addEventListener('scroll', () => {
   const newMarginTop = Math.max(headerHeight - scrollPosition, 0);
   container.style.marginTop = `${newMarginTop}px`;
 });
-
+*/
 // Set body background color and additional styles
 document.body.style.backgroundColor = '#ffcd08';
+/*
 document.body.style.color = '#333';
 document.body.style.fontFamily = 'Arial, sans-serif';
 document.body.style.textAlign = 'center';
 document.body.style.margin = '0';
 document.body.style.padding = '0';
+document.body.style.display = 'inline-block'; // Add display: inline-block
+*/
+
+document.body.style.paddingTop = '70px';  // Use camelCase for padding-top
+document.body.style.marginTop = '300px';  // Use camelCase for margin-top
+document.body.style.width = '100%';  // Use camelCase for width
+document.body.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
+//document.body.style.border = '3px groove green';
+
+//document.body.style.width = '100%'; // Set width
+//document.body.style.height = '100vh'; // Set height (100% of the viewport height)
 
 // SECTION: CHALLENGE DESCRIPTION
 // Create a paragraph element
 const paragraph = document.createElement('p');
 
 // Set the HTML content of the paragraph using challengeText
-const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
+const challengeText = '<strong style = "font-size: 18px">JavaScript Most Popular Job Interview Challenge Game:</strong><br><span style = "font-size: 18px">Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.<span/>';
 paragraph.innerHTML = challengeText;
 container.appendChild(paragraph);
 // Append the paragraph to a container 
