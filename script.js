@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-// Container creation
+
+/*
 const container = document.createElement('div');
 document.body.appendChild(container);
 
+*/
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -29,13 +31,45 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-    
-// SECTION: HEADER
+
+// Fixed Header
 const header = document.createElement('h1');
-header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong><span style="text-align: left; font-size: 18px; color: black;">Dr Melchisedec Bankole</span>';
+header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong> <span style="text-align: left; font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px;">Dr Melchisedec Bankole</span>';
 header.style.color = 'blue';
-header.style.fontSize = '24px'; // Add font size for the entire header
-container.appendChild(header);
+header.style.fontSize = '24px';
+document.body.appendChild(header);
+
+// Container creation and styling
+const container = document.createElement('div');
+document.body.appendChild(container);
+
+container.style.display = 'flex';
+container.style.flexDirection = 'column';
+container.style.alignItems = 'flex-start'; // Align to the left
+container.style.justifyContent = 'space-between';
+container.style.padding = '20px';
+container.style.border = '1px solid #ccc';
+container.style.transition = 'margin-top 0.3s ease-out';
+container.style.textAlign = 'left'; // Align text inside container to the left
+
+// Calculate the height of the header and set the initial margin for the container
+const headerHeight = header.offsetHeight;
+container.style.marginTop = `${headerHeight}px`;
+
+// Listen for scroll events
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const newMarginTop = Math.max(headerHeight - scrollPosition, 0);
+  container.style.marginTop = `${newMarginTop}px`;
+});
+
+// Set body background color and additional styles
+document.body.style.backgroundColor = '#ffcd08';
+document.body.style.color = '#333';
+document.body.style.fontFamily = 'Arial, sans-serif';
+document.body.style.textAlign = 'center';
+document.body.style.margin = '0';
+document.body.style.padding = '0';
 
 // SECTION: CHALLENGE DESCRIPTION
 // Create a paragraph element
@@ -44,9 +78,8 @@ const paragraph = document.createElement('p');
 // Set the HTML content of the paragraph using challengeText
 const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
 paragraph.innerHTML = challengeText;
-
-// Append the paragraph to a container (assuming container is defined elsewhere)
 container.appendChild(paragraph);
+// Append the paragraph to a container 
 
 // SECTION: COUNTDOWN TIMER
 const countdown = document.createElement('div');
@@ -54,9 +87,6 @@ countdown.style.color = 'red';
 countdown.style.fontSize = '30px'; // Add font size
 countdown.innerText = `Time: 420sec`; // Initial time
 container.appendChild(countdown);
-
-// Set body background color
-document.body.style.backgroundColor = '#ffcd08';
 
 // SECTION: USER INPUT/TEXTAREA AND CODE EVALUATION
 const textarea = document.createElement('textarea');
@@ -102,6 +132,7 @@ function updateTimer() {
 
 updateTimer(); // Initial call to display the timer
 restartTimer(); // Initial call to start the timer
+
 
 // SECTION: EVALUATE CODE FUNCTION USING SANDBOXED ENVIRONMENT
 function evaluateCode() {
@@ -171,8 +202,7 @@ console.log(fizzBuzzResult);
 alert(`1,000 JavaScript Most Popular Job Interview Challenge Game:\nCode author:\nDr. Melchisedec Bankole.\nClick OK to continue to the code challenge.`);
 
 alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to annex your coding Super-Power.\nThis might be your long-awaited opportunity to land your first dream job in tech.\nAre you ready? Lets go!\n Click Ok to continue to the challenge.`);
-
-
+    
   // SECTION: AUDIO PLAYER
 const audioElement = new Audio();
 audioElement.id = "background-music";
@@ -197,7 +227,8 @@ audioToggle.style.color = 'white';
 audioToggle.style.backgroundColor = 'red'; // Set background color to red
 
 document.body.appendChild(audioElement);
-document.body.appendChild(audioToggle);
+container.appendChild(audioToggle);
+//document.body.appendChild(audioToggle);
 
 audioToggle.addEventListener("click", function () {
     if (audioElement.paused) {
@@ -212,7 +243,6 @@ audioElement.addEventListener("ended", function () {
     audioElement.src = sources[currentIndex];
     audioElement.play();
 });
-
 
 // SECTION: MEDIA QUERY FOR AUDIO PLAYER
 const audioPlayerMediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
@@ -232,8 +262,8 @@ audioPlayerMediaQuery.addEventListener('change', handleAudioPlayerMediaQueryChan
 
 // Initial check for the audio player media query
 handleAudioPlayerMediaQueryChange(audioPlayerMediaQuery);
-  
 
+    
 // SECTION: MEDIA QUERY FOR MOBILE PHONES
 const mediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
 
@@ -254,13 +284,6 @@ function handleMediaQueryChange(e) {
         evaluateButton.style.fontSize = '16px';
     }
 }
-
-// Attach the event listener to the media query
-mediaQuery.addEventListener('change', handleMediaQueryChange);
-
-// Initial check for the media query
-handleMediaQueryChange(mediaQuery);
-});
 
 // Attach the event listener to the media query
 mediaQuery.addEventListener('change', handleMediaQueryChange);
