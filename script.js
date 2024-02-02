@@ -29,7 +29,7 @@ document.addEventListener('keydown', function (e) {
 
 // Header Section
 const header = document.createElement('h1');
-header.innerHTML = '<span style="font-size: 28px; margin-top: 10px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
+header.innerHTML = '<span style="font-size: 24px; margin-top: 10px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
 header.style.color = 'blue';
 header.style.fontSize = '24px';
 header.style.fontFamily = 'Arial, sans-serif'; // Add font family
@@ -42,7 +42,7 @@ header.style.textAlign = 'center'; // Center align text
 header.style.backgroundColor = '#ffcd08';
 header.style.paddingTop = '2px';
 header.style.paddingBottom = '2px';
-header.style.position = 'fixed';
+header.style.position = 'absolute'//'fixed';
 header.style.top = '0';
 header.style.left = '0';
 header.style.width = '100%';
@@ -74,9 +74,9 @@ container.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
 //container.style.width = '400px'; // Set width
 //container.style.height = '300px'; // Set height
 
-//container.style.paddingTop = '70px';  // Use camelCase for padding-top
-//container.style.marginTop = '100px';  // Use camelCase for margin-top
-/*
+//container.style.paddingTop = '70px';  // padding-top
+//container.style.marginTop = '100px';  // margin-top
+
 // Calculate the height of the header and set the initial margin for the container
 const headerHeight = header.offsetHeight;
 container.style.marginTop = `${headerHeight}px`;
@@ -87,7 +87,7 @@ window.addEventListener('scroll', () => {
   const newMarginTop = Math.max(headerHeight - scrollPosition, 0);
   container.style.marginTop = `${newMarginTop}px`;
 });
-*/
+
 // Set body background color and additional styles
 document.body.style.backgroundColor = '#ffcd08';
 /*
@@ -100,13 +100,13 @@ document.body.style.display = 'inline-block'; // Add display: inline-block
 */
 
 document.body.style.paddingTop = '70px';  // Use camelCase for padding-top
-document.body.style.marginTop = '300px';  // Use camelCase for margin-top
+document.body.style.marginTop = '150px';  // Use camelCase for margin-top
 document.body.style.width = '100%';  // Use camelCase for width
 document.body.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
 //document.body.style.border = '3px groove green';
 
-//document.body.style.width = '100%'; // Set width
-//document.body.style.height = '100vh'; // Set height (100% of the viewport height)
+
+document.body.style.height = '100vh'; // Set height (100% of the viewport height)
 
 // SECTION: CHALLENGE DESCRIPTION
 // Create a paragraph element
