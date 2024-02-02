@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -136,7 +135,7 @@ container.appendChild(textarea);
 const evaluateButton = document.createElement('button');
 evaluateButton.style.width = '100%';
 evaluateButton.style.color = 'white';
-evaluateButton.style.backgroundColor = 'BLUE';
+evaluateButton.style.backgroundColor = 'blue';
 evaluateButton.innerText = 'Evaluate Code';
 evaluateButton.addEventListener('click', evaluateCode);
 container.appendChild(evaluateButton);
@@ -260,7 +259,7 @@ audioToggle.textContent = "Toggle Audio Music";
 // Adjust styles for the button
 audioToggle.style.width = '100%';
 audioToggle.style.color = 'white';
-audioToggle.style.backgroundColor = 'red'; // Set background color to red
+audioToggle.style.backgroundColor = 'black'; // Set background color to red
 
 document.body.appendChild(audioElement);
 container.appendChild(audioToggle);
