@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
 const container = document.createElement('div');
 document.body.appendChild(container);
 
-
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -30,7 +29,7 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-
+    
 // SECTION: HEADER
 const header = document.createElement('h1');
 header.innerHTML = '1,000 <strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power <span style="color: red;">(Beta)<br></span></strong><span style="text-align: left; font-size: 18px; color: black;">Dr Melchisedec Bankole</span>';
@@ -38,15 +37,16 @@ header.style.color = 'blue';
 header.style.fontSize = '24px'; // Add font size for the entire header
 container.appendChild(header);
 
-// Set body background color
-document.body.style.backgroundColor = '#ffcd08';
-
 // SECTION: CHALLENGE DESCRIPTION
+// Create a paragraph element
 const paragraph = document.createElement('p');
-paragraph.textContent = 'JavaScript Most Popular Job Interview Challenge:<br>Write a program that prints the numbers from 1 to 100.<br>But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.<br>For numbers which are multiples of both three and five print “FizzBuzz”\n';
-container.appendChild(paragraph);
+
+// Set the HTML content of the paragraph using challengeText
 const challengeText = '<strong>JavaScript Most Popular Job Interview Challenge Game:</strong><br>Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.For numbers which are multiples of both three and five print “FizzBuzz”.';
-paragraph.innerHTML = challengeText.split('.').join('.<br>');
+paragraph.innerHTML = challengeText;
+
+// Append the paragraph to a container (assuming container is defined elsewhere)
+container.appendChild(paragraph);
 
 // SECTION: COUNTDOWN TIMER
 const countdown = document.createElement('div');
@@ -54,7 +54,10 @@ countdown.style.color = 'red';
 countdown.style.fontSize = '30px'; // Add font size
 countdown.innerText = `Time: 420sec`; // Initial time
 container.appendChild(countdown);
-    
+
+// Set body background color
+document.body.style.backgroundColor = '#ffcd08';
+
 // SECTION: USER INPUT/TEXTAREA AND CODE EVALUATION
 const textarea = document.createElement('textarea');
 textarea.style.width = '100%';
@@ -99,7 +102,6 @@ function updateTimer() {
 
 updateTimer(); // Initial call to display the timer
 restartTimer(); // Initial call to start the timer
-
 
 // SECTION: EVALUATE CODE FUNCTION USING SANDBOXED ENVIRONMENT
 function evaluateCode() {
@@ -169,7 +171,8 @@ console.log(fizzBuzzResult);
 alert(`1,000 JavaScript Most Popular Job Interview Challenge Game:\nCode author:\nDr. Melchisedec Bankole.\nClick OK to continue to the code challenge.`);
 
 alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to annex your coding Super-Power.\nThis might be your long-awaited opportunity to land your first dream job in tech.\nAre you ready? Lets go!\n Click Ok to continue to the challenge.`);
-    
+
+
   // SECTION: AUDIO PLAYER
 const audioElement = new Audio();
 audioElement.id = "background-music";
@@ -210,6 +213,7 @@ audioElement.addEventListener("ended", function () {
     audioElement.play();
 });
 
+
 // SECTION: MEDIA QUERY FOR AUDIO PLAYER
 const audioPlayerMediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
 
@@ -228,8 +232,8 @@ audioPlayerMediaQuery.addEventListener('change', handleAudioPlayerMediaQueryChan
 
 // Initial check for the audio player media query
 handleAudioPlayerMediaQueryChange(audioPlayerMediaQuery);
+  
 
-    
 // SECTION: MEDIA QUERY FOR MOBILE PHONES
 const mediaQuery = window.matchMedia('(max-width: 600px)'); // Adjust the width as needed
 
@@ -250,6 +254,13 @@ function handleMediaQueryChange(e) {
         evaluateButton.style.fontSize = '16px';
     }
 }
+
+// Attach the event listener to the media query
+mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+// Initial check for the media query
+handleMediaQueryChange(mediaQuery);
+});
 
 // Attach the event listener to the media query
 mediaQuery.addEventListener('change', handleMediaQueryChange);
