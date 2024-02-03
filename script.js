@@ -28,7 +28,7 @@ document.addEventListener('keydown', function (e) {
     
 // Header Section
 const header = document.createElement('h1');
-header.innerHTML = '<span style="font-size: 24px; margin-top: 40px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
+header.innerHTML = '<span style="font-size: 24px; margin-top: 70px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
 header.style.color = 'blue';
 header.style.fontSize = '24px';
 header.style.fontFamily = 'Arial, sans-serif'; // Add font family
