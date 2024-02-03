@@ -251,6 +251,7 @@ let currentIndex = 0;
 audioElement.src = sources[currentIndex];
 audioElement.autoplay = true; // Autoplay the audio
 audioElement.muted = false; // Not muted (set to false)
+audioElement.loop = true; // Loop the audio (set to true)
 
 const audioToggle = document.createElement("button");
 audioToggle.id = "toggle-audio";
