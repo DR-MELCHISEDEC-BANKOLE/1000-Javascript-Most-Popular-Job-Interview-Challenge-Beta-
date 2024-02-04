@@ -99,10 +99,10 @@ document.body.style.padding = '0';
 document.body.style.display = 'inline-block'; // Add display: inline-block
 */
 
-document.body.style.paddingTop = '70px';  // Use camelCase for padding-top
-document.body.style.marginTop = '150px';  // Use camelCase for margin-top
-document.body.style.width = '100%';  // Use camelCase for width
-document.body.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
+document.body.style.paddingTop = '70px';  // padding-top
+document.body.style.marginTop = '150px';  // margin-top
+document.body.style.width = '100%';  // width
+document.body.style.boxSizing = 'border-box';  // box-sizing
 //document.body.style.border = '3px groove green';
 
 
