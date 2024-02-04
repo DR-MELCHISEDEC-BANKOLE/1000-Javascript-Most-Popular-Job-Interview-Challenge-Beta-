@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -25,7 +26,7 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-    
+
 // Header Section
 const header = document.createElement('h1');
 header.innerHTML = '<span style="font-size: 24px; margin-top: 70px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
@@ -168,59 +169,66 @@ function updateTimer() {
 updateTimer(); // Initial call to display the timer
 restartTimer(); // Initial call to start the timer
 
-
 // SECTION: EVALUATE CODE FUNCTION USING SANDBOXED ENVIRONMENT
 function evaluateCode() {
     const userCode = textarea.value.trim(); // Trim whitespace
 
     // Check if there is user input
-    if (!userCode) {
-        alert('Please provide code before evaluating.'); // Notify the user to input code
-        return;
-    }
 
-    try {
-        // Create a sandboxed environment with the fizzBuzz function
-        const sandbox = new Function(`
-            ${fizzBuzz}
-            let userOutput;
-            try {
-                // Create a new fizzBuzz function in the user's context
-                const fizzBuzzInUserContext = ${fizzBuzz};
-                userOutput = fizzBuzzInUserContext(100).join(',');
+if (!userCode.includes('Fizz') && !userCode.includes('Buzz') && !userCode.includes('FizzBuzz')) {
+    alert('Your code is incomplete. Please add logic to handle FizzBuzz conditions.');
+    return;
+}
+
+try {
+    // Create a sandboxed environment with the fizzBuzz function
+    const sandbox = new Function(`
+        ${fizzBuzz}
+        let userOutput;
+        try {
+            // Create a new fizzBuzz function in the user's context
+            const fizzBuzzInUserContext = ${fizzBuzz};
+            userOutput = fizzBuzzInUserContext(100).join(',');
+
+            // Create a function for user code and call it within the loop structure
+            function userCodeFunction() {
                 ${userCode}
-            } catch (error) {
-                throw new Error('User code error: ' + error.message);
             }
-            return userOutput;
-        `);
-
-        const userOutput = sandbox();
-
-        // Compare the user's output with the expected result (FizzBuzz)
-        const fizzBuzzResult = fizzBuzz(100);
-        const expectedOutput = fizzBuzzResult.join(',');
-
-        if (userOutput === expectedOutput) {
-            alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');        } else {
-            alert('Sorry, your code did not produce the expected output for the FizzBuzz challenge. Please try again.');
+            userCodeFunction();
+        } catch (error) {
+            throw new Error('User code error: ' + error.message);
         }
-    } catch (error) {
-        alert(`Error: ${error.message}`);
+        return userOutput;
+    `);
+
+    const userOutput = sandbox();
+
+    // Compare the user's output with the expected result (FizzBuzz)
+    const fizzBuzzResult = fizzBuzz(100);
+    const expectedOutput = fizzBuzzResult.join(',');
+
+    if (userOutput === expectedOutput) {
+        alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');
+    } else {
+        alert('Sorry, your code did not produce the expected output for the FizzBuzz challenge. Please try again.');
     }
+} catch (error) {
+    alert(`Error: ${error.message}`);
+}
 }
 
 // SECTION: FIZZBUZZ CHALLENGE IMPLEMENTATION
 function fizzBuzz(n) {
-    const result = [];
-    for (let i = 1; i <= n; i++) {
-        if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
-        else if (i % 3 === 0) result.push('Fizz');
-        else if (i % 5 === 0) result.push('Buzz');
-        else result.push(i);
-    }
-    return result;
+const result = [];
+for (let i = 1; i <= n; i++) {
+if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
+else if (i % 3 === 0) result.push('Fizz');
+else if (i % 5 === 0) result.push('Buzz');
+else result.push(i);
 }
+return result;
+}
+
 
 // SECTION: EXAMPLE OF USING FIZZBUZZ FUNCTION
 //const fizzBuzzResult = fizzBuzz(100);
@@ -233,11 +241,10 @@ function fizzBuzz(n) {
 // Arrays: Store and compare multiple results.
 // Strict mode ('use strict'): Enforce better coding practices.
 
-// SECTION: ALERT THE USER WITH AUTHOR INFORMATION
+// SECTION: ALERT THE USER WITH INFORMATION
 alert(`1,000 JavaScript Most Popular Job Interview Challenge Game:\nCode author:\nDr. Melchisedec Bankole.\nClick OK to continue to the code challenge.`);
-
 alert(`JavaScript Most Popular Job Interview Challenge:\n\nThis is the time to annex your coding Super-Power.\nThis might be your long-awaited opportunity to land your first dream job in tech.\nAre you ready? Lets go!\n Click Ok to continue to the challenge.`);
-    
+
   // SECTION: AUDIO PLAYER
 const audioElement = new Audio();
 audioElement.id = "background-music";
@@ -251,7 +258,6 @@ let currentIndex = 0;
 audioElement.src = sources[currentIndex];
 audioElement.autoplay = true; // Autoplay the audio
 audioElement.muted = false; // Not muted (set to false)
-audioElement.loop = true; // Loop the audio (set to true)
 
 const audioToggle = document.createElement("button");
 audioToggle.id = "toggle-audio";
