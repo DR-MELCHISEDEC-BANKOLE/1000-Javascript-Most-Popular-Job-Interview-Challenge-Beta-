@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+/*
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -26,14 +26,14 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-
+*/
 // Header Section
 const header = document.createElement('h1');
 header.innerHTML = '<span style="font-size: 24px; margin-top: 70px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
 header.style.color = 'blue';
 header.style.fontSize = '24px';
 header.style.fontFamily = 'Arial, sans-serif'; // Add font family
-
+header.style.zIndex = '1000'; // Add z-index to the header
 //header.style.marginTop = '30px'; // Add top margin
 header.style.textAlign = 'center'; // Center align text
 //header.style.display = 'inline-block'; // Add display: inline-block
@@ -52,6 +52,7 @@ header.style.marginLeft = '-0.5px';  // Use camelCase for margin-left
 document.body.appendChild(header);
 document.body.style.margin = '0';
 document.body.style.padding = '0';
+//document.body.style.overflow = 'hidden'; // Optional: to prevent scrollbars
 
 header.style.margin = '0';  // Remove margin above the header
 header.style.padding = '0';  // Remove padding above the header
@@ -59,7 +60,7 @@ header.style.padding = '0';  // Remove padding above the header
 
 const container = document.createElement('div');
 document.body.appendChild(container);
-
+container.style.position = 'relative';
 container.style.display = 'flex'; // Add display: inline-block
 container.style.flexDirection = 'column';
 container.style.alignItems = 'flex-start'; // Align to the left
@@ -99,10 +100,10 @@ document.body.style.padding = '0';
 document.body.style.display = 'inline-block'; // Add display: inline-block
 */
 
-document.body.style.paddingTop = '70px';  // padding-top
-document.body.style.marginTop = '150px';  // margin-top
-document.body.style.width = '100%';  // width
-document.body.style.boxSizing = 'border-box';  // box-sizing
+document.body.style.paddingTop = '70px';  // Use camelCase for padding-top
+document.body.style.marginTop = '150px';  // Use camelCase for margin-top
+document.body.style.width = '100%';  // Use camelCase for width
+document.body.style.boxSizing = 'border-box';  // Use camelCase for box-sizing
 //document.body.style.border = '3px groove green';
 
 
@@ -174,59 +175,55 @@ function evaluateCode() {
     const userCode = textarea.value.trim(); // Trim whitespace
 
     // Check if there is user input
-
-if (!userCode.includes('Fizz') && !userCode.includes('Buzz') && !userCode.includes('FizzBuzz')) {
-    alert('Your code is incomplete. Please add logic to handle FizzBuzz conditions.');
-    return;
-}
-
-try {
-    // Create a sandboxed environment with the fizzBuzz function
-    const sandbox = new Function(`
-        ${fizzBuzz}
-        let userOutput;
-        try {
-            // Create a new fizzBuzz function in the user's context
-            const fizzBuzzInUserContext = ${fizzBuzz};
-            userOutput = fizzBuzzInUserContext(100).join(',');
-
-            // Create a function for user code and call it within the loop structure
-            function userCodeFunction() {
-                ${userCode}
-            }
-            userCodeFunction();
-        } catch (error) {
-            throw new Error('User code error: ' + error.message);
-        }
-        return userOutput;
-    `);
-
-    const userOutput = sandbox();
-
-    // Compare the user's output with the expected result (FizzBuzz)
-    const fizzBuzzResult = fizzBuzz(100);
-    const expectedOutput = fizzBuzzResult.join(',');
-
-    if (userOutput === expectedOutput) {
-        alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');
-    } else {
-        alert('Sorry, your code did not produce the expected output for the FizzBuzz challenge. Please try again.');
+    if (!userCode) {
+        alert('Please provide code before evaluating.'); // Alert the user to input code
+        return;
     }
-} catch (error) {
-    alert(`Error: ${error.message}`);
-}
+
+    try {
+        // Create a sandboxed environment with the fizzBuzz function
+        const sandbox = new Function(`
+            ${fizzBuzz}
+            let userOutput;
+            try {
+                // Create a new fizzBuzz function in the user's context
+                const fizzBuzzInUserContext = ${fizzBuzz};
+                userOutput = fizzBuzzInUserContext(100).join(',');
+
+                // Concatenate the user code to the loop structure
+                ${userCode}
+            } catch (error) {
+                throw new Error('User code error: ' + error.message);
+            }
+            return userOutput;
+        `);
+
+        const userOutput = sandbox();
+
+        // Compare the user's output with the expected result (FizzBuzz)
+        const fizzBuzzResult = fizzBuzz(100);
+        const expectedOutput = fizzBuzzResult.join(',');
+
+        if (userOutput === expectedOutput) {
+            alert('Congratulation! Code executed successfully, and with your newly discovered coding Super-Power, you are on your way to getting hired!');
+        } else {
+            alert('Sorry, your code did not produce the expected output for the FizzBuzz challenge. Please try again.');
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
 }
 
 // SECTION: FIZZBUZZ CHALLENGE IMPLEMENTATION
 function fizzBuzz(n) {
-const result = [];
-for (let i = 1; i <= n; i++) {
-if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
-else if (i % 3 === 0) result.push('Fizz');
-else if (i % 5 === 0) result.push('Buzz');
-else result.push(i);
-}
-return result;
+    const result = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) result.push('FizzBuzz');
+        else if (i % 3 === 0) result.push('Fizz');
+        else if (i % 5 === 0) result.push('Buzz');
+        else result.push(i);
+    }
+    return result;
 }
 
 
