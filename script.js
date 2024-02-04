@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+/*
 // Disable right-click, copy, cut, paste, Ctrl+C, Ctrl+V, and Escape
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -26,7 +26,7 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
-
+*/
 // Header Section
 const header = document.createElement('h1');
 header.innerHTML = '<span style="font-size: 24px; margin-top: 70px; padding: 3px; display: block;">1,000 <span style = "text-transform: uppercase;"><strong>JavaScript Most Popular Job Interview Challenge Game To Annex Your Coding Super-Power</span> <span style="color: red; padding: 5px; margin: 10px 0; display: block;">(Beta)<br></span></strong> <span style="font-size: 18px; color: black; font-weight: normal; margin-bottom: 10px; display: block;">Dr Melchisedec Bankole</span></span>';
